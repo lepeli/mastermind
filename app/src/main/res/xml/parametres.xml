@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/params_title"
+        android:key="params_cat"
+        android:summary="@string/params_texte">
+        <CheckBoxPreference
+            android:key="void_cases_enabled"
+            android:title="@string/void_cases_setting_name"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+</PreferenceScreen>

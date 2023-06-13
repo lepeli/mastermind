@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Mastermind</string>
+
+    <!---
+    Strings utilisées pour les paramètres -->
+    <string name="params_btn">Paramètres</string>
+    <string name="params_title">Paramètres du jeu</string>
+    <string name="params_texte">Changez le comportement du jeu</string>
+    <string name="void_cases_setting_name">Activer les cases vides</string>
+
 </resources>
