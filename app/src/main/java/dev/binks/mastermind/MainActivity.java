@@ -16,13 +16,11 @@ import dev.binks.mastermind.view.MainMenuListener;
 
 public class MainActivity extends AppCompatActivity {
 
-    private GameModel model;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        this.model = new GameModel();
         MainMenuListener.setupMainMenuListeners(this);
     }
 
