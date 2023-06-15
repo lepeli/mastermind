@@ -13,6 +13,14 @@
         android:theme="@style/Theme.Mastermind"
         tools:targetApi="31">
         <activity
+            android:name=".activities.CombinationCreatorActivity"
+            android:launchMode="singleTop"
+            android:exported="false" />
+        <activity
+            android:name=".activities.GameWindowActivity"
+            android:launchMode="singleTop"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -22,11 +30,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SettingsActivity"
+            android:name=".activities.SettingsActivity"
             android:exported="false">
             <intent-filter>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
     </application>
