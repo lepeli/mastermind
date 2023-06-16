@@ -10,8 +10,6 @@ import android.view.MenuItem;
 import dev.binks.mastermind.activities.CombinationCreatorActivity;
 import dev.binks.mastermind.activities.GameWindowActivity;
 import dev.binks.mastermind.activities.SettingsActivity;
-import dev.binks.mastermind.model.GameModel;
-import dev.binks.mastermind.R;
 import dev.binks.mastermind.view.MainMenuListener;
 
 public class MainActivity extends AppCompatActivity {

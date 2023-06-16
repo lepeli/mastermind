@@ -24,6 +24,11 @@ public class GameModel {
         this.secretCombination = secretCombination;
     }
 
+    public boolean testCombination(Combination combination) {
+        ResultCombination result = this.secretCombination.compareWith(combination);
+        return result.isWinning();
+    }
+
     /**
      * Generates a random combination.
      * @return the generated combination

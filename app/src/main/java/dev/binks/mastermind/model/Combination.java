@@ -9,7 +9,7 @@ import dev.binks.mastermind.constants.ColorItem;
  */
 public class Combination {
 
-    private ColorItem[] combination;
+    protected ColorItem[] combination;
 
     /**
      * Constructor.
@@ -59,7 +59,35 @@ public class Combination {
     public void fillWithRandomColorItems() {
         //TODO: Algo pour générer combi
         // Placeholder :
-        this.combination = new ColorItem[] {ColorItem.BLUE, ColorItem.CYAN, ColorItem.RED, ColorItem.MAGENTA};
+        this.combination = new ColorItem[] {ColorItem.BLUE, ColorItem.YELLOW, ColorItem.RED, ColorItem.GREEN};
         Log.v("Secret combination", "Random generation done");
+    }
+
+    /**
+     * Compare the combination with the argument combination.
+     * @param comparison
+     * @return the result combination
+     */
+    public ResultCombination compareWith(Combination comparison) {
+        ResultCombination result = new ResultCombination();
+        for (int i = 0; i < this.combination.length; i++) {
+            ColorItem firstVerifItem = getColor(i);
+            ColorItem compItem = comparison.getColor(i);
+
+            // mets un item noir si couleur bien placée
+            if (firstVerifItem == compItem)
+                result.setColor(ColorItem.BLACK, i);
+
+            // sinon vérifie si la couleur est présente dans la combinaison
+            // et mets un item blanc
+            else {
+                for (int j = 0; j < this.combination.length; j++) {
+                    ColorItem secondVerifItem = getColor(j);
+                    if (firstVerifItem == secondVerifItem)
+                        result.setColor(ColorItem.WHITE, i);
+                }
+            }
+        }
+        return result;
     }
 }

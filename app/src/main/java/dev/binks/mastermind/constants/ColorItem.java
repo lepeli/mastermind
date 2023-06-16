@@ -6,10 +6,12 @@ import android.graphics.Color;
  * Class containing the game colors to avoid treating them as int.
  */
 public class ColorItem {
-    public static ColorItem BLUE = new ColorItem(Color.BLUE);
-    public static ColorItem RED = new ColorItem(Color.RED);
-    public static ColorItem CYAN = new ColorItem(Color.CYAN);
-    public static ColorItem MAGENTA = new ColorItem(Color.MAGENTA);
+    public static final ColorItem BLUE = new ColorItem(Color.BLUE);
+    public static final ColorItem RED = new ColorItem(Color.RED);
+    public static final ColorItem YELLOW = new ColorItem(Color.YELLOW);
+    public static final ColorItem GREEN = new ColorItem(Color.GREEN);
+    public static final ColorItem WHITE = new ColorItem(Color.WHITE);
+    public static final ColorItem BLACK = new ColorItem(Color.BLACK);
 
     public int value;
     public ColorItem(int value) {
