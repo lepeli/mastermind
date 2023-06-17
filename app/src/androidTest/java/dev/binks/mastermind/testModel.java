@@ -7,6 +7,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import dev.binks.mastermind.activities.GameWindowActivity;
 import dev.binks.mastermind.constants.ColorItem;
 import dev.binks.mastermind.model.Combination;
 import dev.binks.mastermind.model.GameModel;
@@ -20,7 +21,7 @@ public class testModel {
     @Test
     public void testModel() {
         // generates a random secret combination
-        GameModel gm = new GameModel();
+        GameModel gm = new GameModel(new GameWindowActivity());
 
         Combination test = new Combination(new ColorItem[] {
                 ColorItem.BLUE,
@@ -30,7 +31,7 @@ public class testModel {
         });
 
         // supposed to return false right now
-        boolean result = gm.testCombination(test);
+        boolean result = gm.testPlayerGuessCombination(test);
         assertEquals(result, false);
         // Log.v("Test result 1 :", String.valueOf(result));
 
@@ -42,7 +43,7 @@ public class testModel {
         });
 
         // supposed to return true for now
-        result = gm.testCombination(test2);
+        result = gm.testPlayerGuessCombination(test2);
         assertEquals(result, true);
         // Log.v("Test result 2 :", String.valueOf(result));
     }
