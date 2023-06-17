@@ -90,4 +90,8 @@ public class Combination {
         }
         return result;
     }
+
+    public int getLength() {
+        return this.combination.length;
+    }
 }

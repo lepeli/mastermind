@@ -21,7 +21,7 @@ public class testModel {
     @Test
     public void testModel() {
         // generates a random secret combination
-        GameModel gm = new GameModel(new GameWindowActivity());
+        GameModel gm = new GameModel(null);
 
         Combination test = new Combination(new ColorItem[] {
                 ColorItem.BLUE,

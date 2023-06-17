@@ -2,15 +2,19 @@ package dev.binks.mastermind.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import dev.binks.mastermind.R;
+import dev.binks.mastermind.constants.ColorItem;
 import dev.binks.mastermind.model.Combination;
 import dev.binks.mastermind.model.GameModel;
 import dev.binks.mastermind.model.ResultCombination;
+import dev.binks.mastermind.view.GameGridView;
 
 public class GameWindowActivity extends AppCompatActivity {
 
     private GameModel gameModel;
+    private GameGridView view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_game_window);
@@ -21,6 +25,15 @@ public class GameWindowActivity extends AppCompatActivity {
         // this.gameModel = new GameModel(this, combination);
 
         this.gameModel = new GameModel(this);
+        this.view = findViewById(R.id.gameView);
+
+        // only for test purpose
+        this.gameModel.testPlayerGuessCombination(new Combination(new ColorItem[] {
+                ColorItem.BLUE,
+                ColorItem.BLACK,
+                ColorItem.GREEN,
+                ColorItem.RED,
+        }));
     }
 
     /**
@@ -36,7 +49,8 @@ public class GameWindowActivity extends AppCompatActivity {
      * Display the result combination as a feedback to the player's guess.
      * @param result the result
      */
-    public void displayInputFeedback(ResultCombination result) {
+    public void displayInputFeedback(Combination input, ResultCombination result, int index) {
+        this.view.displayCombination(input, index);
         // this.view.displayResult(result);
     }
 }

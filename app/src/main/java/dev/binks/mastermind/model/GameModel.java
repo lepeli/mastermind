@@ -9,6 +9,7 @@ public class GameModel {
 
     private Combination secretCombination;
     private GameWindowActivity controller;
+    private int nTry;
 
     /**
      * Constructor.
@@ -17,6 +18,7 @@ public class GameModel {
     public GameModel(GameWindowActivity controller) {
         this.secretCombination = generateCombination();
         this.controller = controller;
+        this.nTry = 0;
     }
 
     /**
@@ -36,10 +38,11 @@ public class GameModel {
     public boolean testPlayerGuessCombination(Combination combination) {
         ResultCombination result = this.secretCombination.compareWith(combination);
 
-        if (result.isWinning())
-            return true;
+        this.controller.displayInputFeedback(combination, result, this.nTry);
 
-        this.controller.displayInputFeedback(result);
+        if (result.isWinning()) {
+            return true;
+        }
         return false;
     }
 

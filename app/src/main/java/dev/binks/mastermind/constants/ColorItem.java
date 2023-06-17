@@ -12,6 +12,7 @@ public class ColorItem {
     public static final ColorItem GREEN = new ColorItem(Color.GREEN);
     public static final ColorItem WHITE = new ColorItem(Color.WHITE);
     public static final ColorItem BLACK = new ColorItem(Color.BLACK);
+    public static final ColorItem DKGRAY = new ColorItem(Color.DKGRAY);
 
     public int value;
     public ColorItem(int value) {
