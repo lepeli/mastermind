@@ -2,6 +2,9 @@ package dev.binks.mastermind.model;
 
 import android.util.Log;
 
+import java.util.Random;
+
+import dev.binks.mastermind.R;
 import dev.binks.mastermind.constants.ColorItem;
 
 /**
@@ -57,9 +60,25 @@ public class Combination {
     }
 
     public void fillWithRandomColorItems() {
-        //TODO: Algo pour générer combi
+        //TODO: Algo pour générer combinaison
         // Placeholder :
-        this.combination = new ColorItem[] {ColorItem.BLUE, ColorItem.YELLOW, ColorItem.BLUE, ColorItem.BLUE};
+//        this.combination = new ColorItem[] {ColorItem.BLUE, ColorItem.YELLOW, ColorItem.RED, ColorItem.GREEN};
+
+        this.combination = new ColorItem[4];
+        ColorItem[] colorsWithEmpty = new ColorItem[] {ColorItem.DKGRAY, ColorItem.GREEN, ColorItem.RED, ColorItem.WHITE, ColorItem.BLACK, ColorItem.BLUE, ColorItem.YELLOW};
+        ColorItem[] colorsWithoutEmpty = new ColorItem[] {ColorItem.GREEN, ColorItem.RED, ColorItem.WHITE, ColorItem.BLACK, ColorItem.BLUE, ColorItem.YELLOW};
+        Random rand = new Random();
+
+        boolean casesVidesAutorisees = false;
+
+        for (int i = 0; i < 4; i++) {
+            if(casesVidesAutorisees){
+                this.combination[i] = colorsWithEmpty[rand.nextInt(colorsWithEmpty.length)];
+            } else{
+                this.combination[i] = colorsWithoutEmpty[rand.nextInt(colorsWithoutEmpty.length)];
+            }
+        }
+
         Log.v("Secret combination", "Random generation done");
     }
 
