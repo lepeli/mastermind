@@ -3,6 +3,8 @@
     <style name="Base.Theme.Mastermind" parent="Theme.Material3.DayNight">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowBackground">#B9B9B9</item>
+
     </style>
 
     <style name="Theme.Mastermind" parent="Base.Theme.Mastermind" />

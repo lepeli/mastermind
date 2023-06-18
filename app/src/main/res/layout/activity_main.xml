@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="@dimen/marginFromTitle"
-        android:text="Jouer contre la machine"/>
+        android:text="Jouer contre la machine" />
 
     <Button
         android:id="@+id/playDuoButton"
