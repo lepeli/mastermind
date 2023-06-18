@@ -1,6 +1,8 @@
 package dev.binks.mastermind.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -18,16 +20,26 @@ public class GameWindowActivity extends AppCompatActivity {
 
     private GameModel gameModel;
     private GameGridView view;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_game_window);
         super.onCreate(savedInstanceState);
 
-        //TODO: passer un bundle avec la combinaison du joueur si c en hotseat
-        // if (y'a une combinaison passée)
-        // this.gameModel = new GameModel(this, combination);
+        // if the hotseat mode, pass the user input as secret code
+        int[] secretCode = getIntent().getExtras().getIntArray("colors");
+        if (secretCode.length >= 0) {
+            ColorItem[] colorItems = new ColorItem[4];
 
-        this.gameModel = new GameModel(this);
+            for (int i = 0; i < secretCode.length; i++)
+                colorItems[i] = new ColorItem(secretCode[i]);
+
+            Combination combination = new Combination(colorItems);
+            this.gameModel = new GameModel(this, combination);
+        } else {
+            this.gameModel = new GameModel(this);
+        }
+
         this.view = findViewById(R.id.gameView);
         InputCombinationListener.setupInputListeners(this);
         GameButtonViewListener.setupButtonListener(this);
@@ -43,6 +55,7 @@ public class GameWindowActivity extends AppCompatActivity {
 
     /**
      * Process the user's guess input.
+     *
      * @param input user input
      * @return true if the combination is a winning combination
      */
@@ -52,6 +65,7 @@ public class GameWindowActivity extends AppCompatActivity {
 
     /**
      * Display the result combination as a feedback to the player's guess.
+     *
      * @param result the result
      */
     public void displayInputFeedback(Combination input, ResultCombination result, int index) {

@@ -27,6 +27,8 @@ public class GameModel {
         this.secretCombination = generateCombination();
         this.controller = controller;
         this.nTry = 0;
+
+        this.controller.displayInputFeedback(this.secretCombination, new ResultCombination(), 0);
     }
 
     /**
