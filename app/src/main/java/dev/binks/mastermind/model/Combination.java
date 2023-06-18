@@ -59,7 +59,7 @@ public class Combination {
     public void fillWithRandomColorItems() {
         //TODO: Algo pour générer combi
         // Placeholder :
-        this.combination = new ColorItem[] {ColorItem.BLUE, ColorItem.YELLOW, ColorItem.RED, ColorItem.GREEN};
+        this.combination = new ColorItem[] {ColorItem.BLUE, ColorItem.YELLOW, ColorItem.BLUE, ColorItem.BLUE};
         Log.v("Secret combination", "Random generation done");
     }
 
@@ -83,8 +83,9 @@ public class Combination {
             else {
                 for (int j = 0; j < this.combination.length; j++) {
                     ColorItem secondVerifItem = getColor(j);
-                    if (firstVerifItem == secondVerifItem)
+                    if (compItem == secondVerifItem) {
                         result.setColor(ColorItem.WHITE, i);
+                    }
                 }
             }
         }

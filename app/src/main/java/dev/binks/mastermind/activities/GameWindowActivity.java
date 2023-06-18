@@ -31,8 +31,8 @@ public class GameWindowActivity extends AppCompatActivity {
         this.gameModel.testPlayerGuessCombination(new Combination(new ColorItem[] {
                 ColorItem.BLUE,
                 ColorItem.BLACK,
-                ColorItem.GREEN,
-                ColorItem.RED,
+                ColorItem.YELLOW,
+                ColorItem.RED
         }));
     }
 

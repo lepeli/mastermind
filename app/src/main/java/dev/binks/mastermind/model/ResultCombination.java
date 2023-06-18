@@ -9,6 +9,12 @@ import dev.binks.mastermind.constants.ColorItem;
  */
 public class ResultCombination extends Combination {
 
+    public ResultCombination() {
+        super();
+        for (int i = 0; i < this.combination.length; i++)
+            this.combination[i] = ColorItem.DKGRAY;
+    }
+
     /**
      * Checks if the result is a winning result.
      * @return true if winning
