@@ -27,8 +27,9 @@ public class GameWindowActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // if the hotseat mode, pass the user input as secret code
-        int[] secretCode = getIntent().getExtras().getIntArray("colors");
-        if (secretCode.length >= 0) {
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            int[] secretCode = extras.getIntArray("colors");
             ColorItem[] colorItems = new ColorItem[4];
 
             for (int i = 0; i < secretCode.length; i++)
@@ -36,6 +37,7 @@ public class GameWindowActivity extends AppCompatActivity {
 
             Combination combination = new Combination(colorItems);
             this.gameModel = new GameModel(this, combination);
+
         } else {
             this.gameModel = new GameModel(this);
         }
@@ -44,14 +46,14 @@ public class GameWindowActivity extends AppCompatActivity {
         InputCombinationListener.setupInputListeners(this);
         GameButtonViewListener.setupButtonListener(this);
 
-        // only for test purpose
+    // only for test purpose
 //        this.gameModel.testPlayerGuessCombination(new Combination(new ColorItem[] {
 //                ColorItem.BLUE,
 //                ColorItem.BLACK,
 //                ColorItem.YELLOW,
 //                ColorItem.RED
 //        }));
-    }
+}
 
     /**
      * Process the user's guess input.

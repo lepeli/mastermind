@@ -30,6 +30,7 @@ public class ColorCircleView extends View {
         else
             this.size = 60;
 
+        this.color = color;
         this.paint = new Paint();
         this.paint.setColor(color.value);
     }
