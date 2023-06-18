@@ -51,6 +51,6 @@ public class GameWindowActivity extends AppCompatActivity {
      */
     public void displayInputFeedback(Combination input, ResultCombination result, int index) {
         this.view.displayCombination(input, index);
-        // this.view.displayResult(result);
+        this.view.displayResult(result, index);
     }
 }

@@ -19,9 +19,15 @@ import dev.binks.mastermind.constants.ColorItem;
 public class ColorCircleView extends View {
 
     private Paint paint;
+    private int size;
 
-    public ColorCircleView(Context context, ColorItem color) {
+    public ColorCircleView(Context context, ColorItem color, boolean isResult) {
         super(context);
+
+        if (isResult)
+            this.size = 30;
+        else
+            this.size = 60;
 
         this.paint = new Paint();
         this.paint.setColor(color.value);
@@ -30,6 +36,6 @@ public class ColorCircleView extends View {
     @Override
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawCircle(100, 100, 100, this.paint);
+        canvas.drawCircle(this.size, this.size, this.size, this.paint);
     }
 }
