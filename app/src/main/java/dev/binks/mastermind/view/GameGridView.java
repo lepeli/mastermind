@@ -26,7 +26,6 @@ public class GameGridView extends TableLayout {
 
     public GameGridView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        this.setBackgroundColor(getResources().getColor(androidx.cardview.R.color.cardview_dark_background));
 
         // Create the grid
 
