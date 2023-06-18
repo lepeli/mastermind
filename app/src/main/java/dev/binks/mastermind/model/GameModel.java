@@ -37,8 +37,8 @@ public class GameModel {
      */
     public boolean testPlayerGuessCombination(Combination combination) {
         ResultCombination result = this.secretCombination.compareWith(combination);
-
         this.controller.displayInputFeedback(combination, result, this.nTry);
+        this.nTry++;
 
         if (result.isWinning()) {
             return true;

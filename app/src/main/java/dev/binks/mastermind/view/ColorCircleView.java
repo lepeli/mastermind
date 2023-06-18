@@ -20,6 +20,7 @@ public class ColorCircleView extends View {
 
     private Paint paint;
     private int size;
+    private ColorItem color;
 
     public ColorCircleView(Context context, ColorItem color, boolean isResult) {
         super(context);
@@ -37,5 +38,15 @@ public class ColorCircleView extends View {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         canvas.drawCircle(this.size, this.size, this.size, this.paint);
+    }
+
+    public void setColor(ColorItem color) {
+        this.color = color;
+        this.paint.setColor(color.value);
+        invalidate();
+    }
+
+    public ColorItem getColor() {
+        return this.color;
     }
 }

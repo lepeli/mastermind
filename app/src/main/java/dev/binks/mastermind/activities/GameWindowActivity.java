@@ -9,7 +9,10 @@ import dev.binks.mastermind.constants.ColorItem;
 import dev.binks.mastermind.model.Combination;
 import dev.binks.mastermind.model.GameModel;
 import dev.binks.mastermind.model.ResultCombination;
+import dev.binks.mastermind.view.GameButtonViewListener;
 import dev.binks.mastermind.view.GameGridView;
+import dev.binks.mastermind.view.InputCombinationListener;
+import dev.binks.mastermind.view.InputCombinationView;
 
 public class GameWindowActivity extends AppCompatActivity {
 
@@ -26,14 +29,16 @@ public class GameWindowActivity extends AppCompatActivity {
 
         this.gameModel = new GameModel(this);
         this.view = findViewById(R.id.gameView);
+        InputCombinationListener.setupInputListeners(this);
+        GameButtonViewListener.setupButtonListener(this);
 
         // only for test purpose
-        this.gameModel.testPlayerGuessCombination(new Combination(new ColorItem[] {
-                ColorItem.BLUE,
-                ColorItem.BLACK,
-                ColorItem.YELLOW,
-                ColorItem.RED
-        }));
+//        this.gameModel.testPlayerGuessCombination(new Combination(new ColorItem[] {
+//                ColorItem.BLUE,
+//                ColorItem.BLACK,
+//                ColorItem.YELLOW,
+//                ColorItem.RED
+//        }));
     }
 
     /**

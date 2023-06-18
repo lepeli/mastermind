@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 import dev.binks.mastermind.R;
+import dev.binks.mastermind.view.InputCombinationListener;
+import dev.binks.mastermind.view.InputCombinationView;
 
 public class CombinationCreatorActivity extends AppCompatActivity {
 
@@ -12,5 +14,6 @@ public class CombinationCreatorActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_combination_creator);
+        InputCombinationListener.setupInputListeners(this);
     }
 }
