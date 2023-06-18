@@ -86,8 +86,8 @@ public class Combination {
     public ResultCombination compareWith(Combination comparison) {
         ResultCombination result = new ResultCombination();
         for (int i = 0; i < this.combination.length; i++) {
-            ColorItem firstVerifItem = getColor(i);
-            ColorItem compItem = comparison.getColor(i);
+            int firstVerifItem = getColor(i).value;
+            int compItem = comparison.getColor(i).value;
 
             // mets un item noir si couleur bien placée
             if (firstVerifItem == compItem)
@@ -97,7 +97,7 @@ public class Combination {
             // et mets un item blanc
             else {
                 for (int j = 0; j < this.combination.length; j++) {
-                    ColorItem secondVerifItem = getColor(j);
+                    int secondVerifItem = getColor(j).value;
                     if (compItem == secondVerifItem) {
                         result.setColor(ColorItem.WHITE, i);
                     }

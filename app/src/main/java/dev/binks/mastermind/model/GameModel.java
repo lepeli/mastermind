@@ -35,6 +35,7 @@ public class GameModel {
      * @param secretCombination
      */
     public GameModel(GameWindowActivity controller, Combination secretCombination) {
+        this(controller);
         this.secretCombination = secretCombination;
     }
 

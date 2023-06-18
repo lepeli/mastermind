@@ -26,6 +26,8 @@ public class GameWindowActivity extends AppCompatActivity {
         setContentView(R.layout.activity_game_window);
         super.onCreate(savedInstanceState);
 
+        this.view = findViewById(R.id.gameView);
+
         // if the hotseat mode, pass the user input as secret code
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -42,7 +44,6 @@ public class GameWindowActivity extends AppCompatActivity {
             this.gameModel = new GameModel(this);
         }
 
-        this.view = findViewById(R.id.gameView);
         InputCombinationListener.setupInputListeners(this);
         GameButtonViewListener.setupButtonListener(this);
 
