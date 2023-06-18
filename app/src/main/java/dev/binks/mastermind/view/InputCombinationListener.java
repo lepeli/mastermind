@@ -1,5 +1,14 @@
 package dev.binks.mastermind.view;
 
+import static android.content.Context.VIBRATOR_SERVICE;
+import static androidx.core.content.ContextCompat.getSystemService;
+
+import android.app.AlarmManager;
+import android.content.Context;
+import android.graphics.Camera;
+import android.hardware.camera2.CameraCaptureSession;
+import android.os.Vibrator;
+import android.provider.AlarmClock;
 import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
@@ -21,22 +30,36 @@ public class InputCombinationListener implements View.OnTouchListener {
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
         float y = motionEvent.getY(0);
+        Vibrator vibrator = (Vibrator) view.getContext().getSystemService(Context.VIBRATOR_SERVICE);
         ColorCircleView source = (ColorCircleView) view;
 
-        if (y >= 0f)
+        if (y >= 0f) {
             source.setColor(ColorItem.DKGRAY);
-        else if (y <= -100f && y >= -200f)
+        }
+        else if (y <= -100f && y >= -200f) {
             source.setColor(ColorItem.BLUE);
-        else if (y <= -200f && y >= -300)
+            vibrator.vibrate(10);
+        }
+        else if (y <= -200f && y >= -300) {
             source.setColor(ColorItem.RED);
-        else if (y <= -300f && y >= -400f)
+
+        }
+        else if (y <= -300f && y >= -400f) {
             source.setColor(ColorItem.YELLOW);
-        else if (y <= -400f && y >= -500f)
+            vibrator.vibrate(10);
+        }
+        else if (y <= -400f && y >= -500f) {
             source.setColor(ColorItem.GREEN);
-        else if (y <= -500f && y >= -600f)
+
+        }
+        else if (y <= -500f && y >= -600f) {
             source.setColor(ColorItem.WHITE);
-        else if (y <= -600f && y >= -700f)
+            vibrator.vibrate(10);
+        }
+        else if (y <= -600f && y >= -700f) {
             source.setColor(ColorItem.BLACK);
+
+        }
 
         return true;
     }
