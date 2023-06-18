@@ -1,5 +1,10 @@
 package dev.binks.mastermind.model;
 
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.util.Log;
+
+import dev.binks.mastermind.R;
 import dev.binks.mastermind.activities.GameWindowActivity;
 
 /**
@@ -9,6 +14,7 @@ public class GameModel {
 
     private Combination secretCombination;
     private GameWindowActivity controller;
+    private SharedPreferences prefs;
     private int nTry;
 
     /**
@@ -16,6 +22,8 @@ public class GameModel {
      * Generates a secret combination.
      */
     public GameModel(GameWindowActivity controller) {
+        PreferenceManager.setDefaultValues(controller, R.xml.parametres, false);
+        this.prefs = PreferenceManager.getDefaultSharedPreferences(controller);
         this.secretCombination = generateCombination();
         this.controller = controller;
         this.nTry = 0;
@@ -52,7 +60,9 @@ public class GameModel {
      */
     private Combination generateCombination() {
         Combination combination = new Combination();
-        combination.fillWithRandomColorItems();
+        Log.v("Game settings", String.valueOf(this.prefs.getBoolean("void_cases_enabled", false)));
+
+        combination.fillWithRandomColorItems(this.prefs.getBoolean("void_cases_enabled", false));
 
         return combination;
     }
