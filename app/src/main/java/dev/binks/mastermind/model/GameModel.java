@@ -17,6 +17,8 @@ public class GameModel {
     private SharedPreferences prefs;
     private int nTry;
 
+    private Combination[] tries;
+
     /**
      * Constructor.
      * Generates a secret combination.
@@ -61,7 +63,6 @@ public class GameModel {
      */
     private Combination generateCombination() {
         Combination combination = new Combination();
-        Log.v("Game settings", String.valueOf(this.prefs.getBoolean("void_cases_enabled", false)));
 
         combination.fillWithRandomColorItems(this.prefs.getBoolean("void_cases_enabled", false));
 

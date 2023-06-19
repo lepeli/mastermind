@@ -8,6 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import dev.binks.mastermind.MainActivity;
 import dev.binks.mastermind.R;
 
+/**
+ * Menu principal de l'application
+ */
 public class MainMenuListener implements View.OnClickListener {
 
     private MainActivity controller;
@@ -16,6 +19,10 @@ public class MainMenuListener implements View.OnClickListener {
         this.controller = controller;
     }
 
+    /**
+     * Listener to get the gamemode selected by the player
+     * @param view The view that was clicked.
+     */
     public void onClick(View view) {
         int id = view.getId();
 

@@ -1,9 +1,11 @@
 package dev.binks.mastermind.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.util.Log;
 
 import dev.binks.mastermind.R;
@@ -74,5 +76,18 @@ public class GameWindowActivity extends AppCompatActivity {
     public void displayInputFeedback(Combination input, ResultCombination result, int index) {
         this.view.displayCombination(input, index);
         this.view.displayResult(result, index);
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        Log.v("Save", "Saving instance");
+        super.onSaveInstanceState(outState);
+        // TODO: Sauvegarder la combinaison + les essais qui ont été faits
+    }
+
+    public void onRestoreInstanceState(Bundle inState){
+        Log.v("Save", "Restoring instance");
+        super.onRestoreInstanceState(inState);
+        // TODO: Restaurer la combinaison ainsi que les essais qui ont pu être fait
     }
 }
