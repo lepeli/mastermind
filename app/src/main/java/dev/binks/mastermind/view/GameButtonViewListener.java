@@ -30,12 +30,8 @@ public class GameButtonViewListener implements View.OnClickListener {
         InputCombinationView source = (InputCombinationView) controller.findViewById(R.id.gameInputView);
         Combination input = source.getCombination();
 
-        if(!this.emptyCasesAllowed){
-            if(input.hasEmptyCases()){
-                Toast.makeText(controller, "Vous ne pouvez pas mettre de case vide !", Toast.LENGTH_SHORT).show();
-            } else {
-                this.controller.submitPlayerInput(input);
-            }
+        if(!input.isCombinationPossible(this.emptyCasesAllowed)) {
+            Toast.makeText(controller, "Vous ne pouvez pas mettre de case vide !", Toast.LENGTH_SHORT).show();
         } else {
             this.controller.submitPlayerInput(input);
         }

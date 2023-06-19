@@ -9,6 +9,7 @@ public class CombinationCreatorListener implements View.OnClickListener {
 
     private CombinationCreatorActivity controller;
 
+
     public CombinationCreatorListener(CombinationCreatorActivity controller) {
         this.controller = controller;
     }
@@ -19,6 +20,7 @@ public class CombinationCreatorListener implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         InputCombinationView source = (InputCombinationView) this.controller.findViewById(R.id.gameInputView);
+        // faire le check pour truc vide
         this.controller.setSecretCombination(source.getCombination());
     }
 

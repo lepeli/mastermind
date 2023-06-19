@@ -74,6 +74,20 @@ public class Combination {
     }
 
     /**
+     * Let the game controller that a combination is possible
+     * @param emptyCasesEnabled params to say that empty cases are enabled
+     * @return true if possible, false if not.
+     */
+    public boolean isCombinationPossible(boolean emptyCasesEnabled){
+
+        if(this.hasEmptyCases()){
+            return emptyCasesEnabled;
+        }
+
+        return true;
+    }
+
+    /**
      * Fills a combination with random colors used for the robot mode
      * @param emptyCases choose wether or not empty cases are allowed in the combination
      */
