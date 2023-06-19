@@ -82,12 +82,22 @@ public class GameWindowActivity extends AppCompatActivity {
     public void onSaveInstanceState(@NonNull Bundle outState) {
         Log.v("Save", "Saving instance");
         super.onSaveInstanceState(outState);
-        // TODO: Sauvegarder la combinaison + les essais qui ont été faits
+        this.gameModel.saveGameData(outState);
+
+        // TODO: Ajouter sauvegarde de l'input
+
+        Log.v("Save", "Activity saved !");
     }
 
     public void onRestoreInstanceState(Bundle inState){
         Log.v("Save", "Restoring instance");
-        super.onRestoreInstanceState(inState);
-        // TODO: Restaurer la combinaison ainsi que les essais qui ont pu être fait
+        this.gameModel.restoreGameData(inState);
+
+        InputCombinationView inputCombinationView = (InputCombinationView) this.findViewById(R.id.gameInputView);
+
+        Combination inputCombination = inputCombinationView.getCombination();
+
+        // TODO: Ajouter la restauration de l'input
+        Log.v("Save", "Instance restored ! ");
     }
 }
