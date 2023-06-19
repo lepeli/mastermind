@@ -34,7 +34,7 @@ public class Combination {
     /**
      * Get the color at the index
      *
-     * @param index
+     * @param index index of color
      * @return the corresponding color
      */
     public ColorItem getColor(int index) {
@@ -45,7 +45,7 @@ public class Combination {
      * Set the color at the index
      *
      * @param color the chosen color
-     * @param index
+     * @param index index of color
      * @throws IllegalArgumentException if wrong index
      */
     public void setColor(ColorItem color, int index) {
@@ -60,6 +60,23 @@ public class Combination {
         }
     }
 
+    /**
+     * Returns wether or not there are empty cases in the color combination
+     * @return true if empty cases are in the combination
+     */
+    public boolean hasEmptyCases(){
+        for (int i = 0; i < 4; i++){
+            if (this.getColor(i).value == ColorItem.DKGRAY.value){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Fills a combination with random colors used for the robot mode
+     * @param emptyCases choose wether or not empty cases are allowed in the combination
+     */
     public void fillWithRandomColorItems(boolean emptyCases) {
 
         this.combination = new ColorItem[4];
