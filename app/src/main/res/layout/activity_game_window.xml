@@ -19,22 +19,22 @@
     <dev.binks.mastermind.view.GameGridView
         android:id="@+id/gameView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="550dp"
         android:layout_below="@id/gameTitle" />
-    
+
     <dev.binks.mastermind.view.InputCombinationView
         android:id="@+id/gameInputView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="20dp"/>
-    
+
     <Button
         android:id="@+id/submitInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_toRightOf="@id/gameInputView"
         android:layout_alignParentBottom="true"
         android:text="Submit"/>

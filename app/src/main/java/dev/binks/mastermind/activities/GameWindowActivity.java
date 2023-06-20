@@ -84,7 +84,15 @@ public class GameWindowActivity extends AppCompatActivity {
         super.onSaveInstanceState(outState);
         this.gameModel.saveGameData(outState);
 
-        // TODO: Ajouter sauvegarde de l'input
+        InputCombinationView inputView = (InputCombinationView) this.findViewById(R.id.gameInputView);
+        Combination input = inputView.getCombination();
+        int[] inputColors = new int[input.getLength()];
+
+        for (int i = 0; i < input.getLength(); i++) {
+            inputColors[i] = input.getColor(i).value;
+        }
+
+        outState.putIntArray("input_colors", inputColors);
 
         Log.v("Save", "Activity saved !");
     }
@@ -95,9 +103,15 @@ public class GameWindowActivity extends AppCompatActivity {
 
         InputCombinationView inputCombinationView = (InputCombinationView) this.findViewById(R.id.gameInputView);
 
-        Combination inputCombination = inputCombinationView.getCombination();
+        Combination combination = new Combination();
+        int[] inputColors = inState.getIntArray("input_colors");
 
-        // TODO: Ajouter la restauration de l'input
+        for (int i = 0; i < inputColors.length; i++) {
+            combination.setColor(new ColorItem(inputColors[i]), i);
+        }
+
+        inputCombinationView.setCombination(combination);
+
         Log.v("Save", "Instance restored ! ");
     }
 }
