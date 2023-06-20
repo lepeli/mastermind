@@ -78,6 +78,11 @@ public class GameWindowActivity extends AppCompatActivity {
         this.view.displayResult(result, index);
     }
 
+    /**
+     * Method to save the game state
+     * @param outState Bundle in which to place your saved state.
+     *
+     */
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         Log.v("Save", "Saving instance");
@@ -94,11 +99,16 @@ public class GameWindowActivity extends AppCompatActivity {
 
         outState.putIntArray("input_colors", inputColors);
 
-        Log.v("Save", "Activity saved !");
+        Log.v("Save", "Game state saved !");
     }
 
+    /**
+     * Method to restore the game window
+     * @param inState the data most recently supplied in {@link #onSaveInstanceState}.
+     *
+     */
     public void onRestoreInstanceState(Bundle inState){
-        Log.v("Save", "Restoring instance");
+        Log.v("Save", "Restoring game state");
         this.gameModel.restoreGameData(inState);
 
         InputCombinationView inputCombinationView = (InputCombinationView) this.findViewById(R.id.gameInputView);
@@ -112,6 +122,6 @@ public class GameWindowActivity extends AppCompatActivity {
 
         inputCombinationView.setCombination(combination);
 
-        Log.v("Save", "Instance restored ! ");
+        Log.v("Save", "Game state restored ! ");
     }
 }

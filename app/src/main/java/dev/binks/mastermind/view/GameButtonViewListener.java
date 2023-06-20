@@ -23,7 +23,8 @@ public class GameButtonViewListener implements View.OnClickListener {
     }
 
     /**
-     * @param view
+     * Method to listen to click on the input submit button
+     * @param view the view in which the event occured
      */
     @Override
     public void onClick(View view) {
@@ -38,6 +39,10 @@ public class GameButtonViewListener implements View.OnClickListener {
 
     }
 
+    /**
+     * Method to setup the button listener
+     * @param controller the game controller
+     */
     public static void setupButtonListener(GameWindowActivity controller) {
         controller.findViewById(R.id.submitInput).setOnClickListener(new GameButtonViewListener(controller));
     }

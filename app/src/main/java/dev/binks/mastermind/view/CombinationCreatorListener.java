@@ -15,12 +15,12 @@ public class CombinationCreatorListener implements View.OnClickListener {
     }
 
     /**
-     * @param view
+     * Method to trigger the check of color combination
+     * @param view the event view
      */
     @Override
     public void onClick(View view) {
         InputCombinationView source = (InputCombinationView) this.controller.findViewById(R.id.gameInputView);
-        // faire le check pour truc vide
         this.controller.setSecretCombination(source.getCombination());
     }
 

@@ -41,12 +41,20 @@ public class ColorCircleView extends View {
         canvas.drawCircle(this.size, this.size, this.size, this.paint);
     }
 
+    /**
+     * Change the displayed color
+     * @param color the ColorItem to display
+     */
     public void setColor(ColorItem color) {
         this.color = color;
         this.paint.setColor(color.value);
         invalidate();
     }
 
+    /**
+     * Get the current displayed
+     * @return the current ColorItem displayed
+     */
     public ColorItem getColor() {
         return this.color;
     }

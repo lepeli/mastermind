@@ -40,6 +40,11 @@ public class GameGridView extends TableLayout {
         }
     }
 
+    /**
+     * Method to display a combination in a row index
+     * @param combination the combination to display
+     * @param index the row index
+     */
     public void displayCombination(Combination combination, int index) {
         TableRow tr = (TableRow) getChildAt(index);
         tr.removeAllViewsInLayout();
@@ -51,6 +56,11 @@ public class GameGridView extends TableLayout {
         tr.invalidate();
     }
 
+    /**
+     * Method to display a result in a row index
+     * @param result the result combination
+     * @param index the row index
+     */
     public void displayResult(ResultCombination result, int index) {
         TableRow tr = (TableRow) getChildAt(index);
 

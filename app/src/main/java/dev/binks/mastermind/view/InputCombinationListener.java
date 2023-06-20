@@ -63,6 +63,11 @@ public class InputCombinationListener implements View.OnTouchListener {
 
         return true;
     }
+
+    /**
+     * Setup all the input listener for the combination input
+     * @param controller the game controller
+     */
     public static void setupInputListeners(AppCompatActivity controller) {
         InputCombinationView view = controller.findViewById(R.id.gameInputView);
         int nChildren = view.getChildCount();

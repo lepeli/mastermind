@@ -34,6 +34,11 @@ public class CombinationCreatorActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Method to check if a combination is possible and if it is launch the game activity
+     * If the combination isn't possible then a toast will be displayed to tell the user he can't use empty cases
+     * @param combination the combination chosen by the user
+     */
     public void setSecretCombination(Combination combination) {
 
         if(!combination.isCombinationPossible(this.emptyCasesAllowed)){
@@ -53,6 +58,11 @@ public class CombinationCreatorActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Method to save the current input
+     * @param outState Bundle in which to place your saved state.
+     *
+     */
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         Log.v("Save", "Sauvegarde activité selection code secret");
